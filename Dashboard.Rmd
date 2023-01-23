@@ -1,0 +1,167 @@
+---
+title: "Carrera la luz 2022"
+output: 
+  flexdashboard::flex_dashboard:
+    theme:
+      bg: "#8ee5ee"
+      fg: "#030303" 
+      primary: "#ffd9e4"
+      base_font:
+        google: Prompt
+      code_font:
+        google: JetBrains Mono
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+# Install thematic and un-comment for themed static plots (i.e., ggplot2)
+# thematic::thematic_rmd()
+```
+
+```{r}
+library(paqueteMET)
+data("CarreraLuz22")
+
+data=CarreraLuz22 #asignar los datos
+library(dplyr)
+```
+
+
+Column {data-width=650 .tabset}
+-----------------------------------------------------------------------
+
+### Tiempos de carrera
+
+```{r}
+library(ggplot2)
+qplot(categoria, timerun/60, data=data, geom=c("boxplot", "jitter"),main = "Tiempo de carreras por categoría",xlab="Categoria",ylab = "Tiempo(min)",col = categoria)
+```
+
+### Hombres por categoría
+
+```{r}
+dataM=subset(data, data$sex=="Hombre")
+
+library(ggplot2)
+qplot(categoria, timerun/60, data=dataM, geom=c("boxplot", "jitter"),main = "Tiempo de carreras de hombres por categoría",xlab="Categoria",ylab = "Tiempo(min)",col = categoria)
+```
+
+### Mujeres por categoría
+
+```{r}
+dataF=subset(data, data$sex=="Mujer")
+
+library(ggplot2)
+qplot(categoria, timerun, data=dataF, geom=c("boxplot", "jitter"),main = "Tiempo de carreras de mujeres por categoría",xlab="Categoria",ylab = "Tiempo(min)",col = categoria)
+```
+
+Column {data-width=350.tabset}
+-----------------------------------------------------------------------
+
+### Tiempo mujeres categoria abierta
+
+```{r}
+dataFc4=subset(CarreraLuz22, (CarreraLuz22$sex=="Mujer" & CarreraLuz22$categoria=="2. Abierta")) # dataset de mujeres
+x=dataFc4$timerun/60
+hist(x, xlim=c(min(dataFc4$timerun/60),max(dataFc4$timerun/60)),
+main = "Distribución de los tiempos mujeres categoría abierta",
+xlab="tiempo (min)",
+ylab = "",
+col ="#ee964b")
+
+# Nuevo gráfico
+par(new = TRUE)
+
+# Box plot
+boxplot(x, horizontal = TRUE, axes = FALSE,
+        col = rgb(0.9, 0.4, 0.6, alpha = 0.8))
+
+# Caja
+box()
+```
+
+### Tiempo hombres categoria abierta
+
+```{r}
+dataFc4=subset(CarreraLuz22, (CarreraLuz22$sex=="Hombre" & CarreraLuz22$categoria=="2. Abierta")) # dataset de mujeres
+x=dataFc4$timerun/60
+hist(x, xlim=c(min(dataFc4$timerun/60),max(dataFc4$timerun/60)),
+main = "Distribución de los tiempos hombres categoría abierta",
+xlab="tiempo (min)",
+ylab = "frecuencia",
+col ="#ee964b")
+
+# Nuevo gráfico
+par(new = TRUE)
+
+# Box plot
+boxplot(x, horizontal = TRUE, axes = FALSE,
+        col = rgb(0.9, 0.4, 0.6, alpha = 0.8))
+
+# Caja
+box()
+```
+
+
+Column {data-width=180}
+-----------------------------------------------------------------------
+
+### Tiempo ganador
+<center>
+**33.1 Minutos**
+</center>
+```{r}
+Tiempoganador=min(dataFc4$timerun/60)
+#Tiempoganador
+```
+
+### Máxima velocidad
+
+<center>
+**5.07 m/s**
+</center>
+```{r}
+#max(10070/(data$timerun))
+```
+
+### Número de participantes
+
+<center>
+**1922 atletas**
+</center>
+```{r}
+#Número de filas
+
+#nrow(data)
+
+```
+
+### Distancia recorrida
+<center>
+**10.07 Km**
+</center>
+```{r}
+
+```
+
+### Porcentaje de mujeres
+<center>
+**38,7**
+</center>
+```{r}
+library(tidyverse)
+table(data$sex) %>%   # se introduce el operador %>%
+prop.table()*100
+
+
+```
+
+### Tiempo promedio de carrera
+<center>
+**65,26 minutos**
+</center>
+```{r}
+mean(data$timerun/60)
+```
