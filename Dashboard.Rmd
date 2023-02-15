@@ -58,7 +58,19 @@ qplot(categoria, timerun, data=dataF, geom=c("boxplot", "jitter"),main = "Tiempo
 ```
 
 ### Análisis
-joijioji
+
+**Los resultados presentados corresponden a la carrera de la luz llevada a cabo en el año 2022, en las calles y parques de ciudades del suroccidente colombiano y tiene como objetivo formar deportistas recreativos y profesionales en pro de tener una vida saludable.** 
+La carrera se divide en cinco categorias:
+
++ **Juvenil**: con 19 participantes, cuyo tiempo promedio fue de 66 minutos, tiempo mínimo de 42 minutos y máximo  de 91, la participación de hombres fue de 53%, mientras que la de mujeres fue de 37%.
+
++ **Abierta**: con 1179 participantes, cuyo tiempo promedio fue de 66 minutos, tiempo mínimo de 33 minutos y máximo  de 115, la participación de hombres fue de 57%, mientras que la de mujeres fue de 43%.
+
++ **Veteranos B**: con 227 participantes, cuyo tiempo promedio fue de 65 minutos, tiempo mínimo de 38 minutos y máximo  de 105, la participación de hombres fue de 68%, mientras que la de mujeres fue de 32%.
+
++ **Veteranos A**: con 423 participantes, cuyo tiempo promedio fue de 65 minutos, tiempo mínimo de 37 minutos y máximo  de 111, la participación de hombres fue de 65%, mientras que la de mujeres fue de 35%.
+
++ **Veteranos A**: con 74 participantes, cuyo tiempo promedio fue de 68 minutos, tiempo mínimo de 45 minutos y máximo  de 166, la participación de hombres fue de 78%, mientras que la de mujeres fue de 22%.
 
 ### Bibliografía
 
