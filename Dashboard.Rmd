@@ -72,7 +72,7 @@ La carrera se divide en cinco categorias:
 
 + **Veteranos A**: con 74 participantes, cuyo tiempo promedio fue de 68 minutos, tiempo mínimo de 45 minutos y máximo  de 166, la participación de hombres fue de 78%, mientras que la de mujeres fue de 22%.
 
-### Bibliografía
+
 
 Column {data-width=250.tabset}
 ----------------------------------------------------------------------
