@@ -57,8 +57,13 @@ library(ggplot2)
 qplot(categoria, timerun, data=dataF, geom=c("boxplot", "jitter"),main = "Tiempo de carreras de mujeres por categoría",xlab="Categoria",ylab = "Tiempo(min)",col = categoria)
 ```
 
-Column {data-width=350.tabset}
------------------------------------------------------------------------
+### Análisis
+joijioji
+
+### Bibliografía
+
+Column {data-width=250.tabset}
+----------------------------------------------------------------------
 
 ### Tiempo mujeres categoria abierta
 
