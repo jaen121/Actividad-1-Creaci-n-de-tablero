@@ -39,6 +39,12 @@ library(ggplot2)
 qplot(categoria, timerun/60, data=data, geom=c("boxplot", "jitter"),main = "Tiempo de carreras por categoría",xlab="Categoria",ylab = "Tiempo(min)",col = categoria)
 ```
 
+### Análisis general
+
+**Los resultados presentados corresponden a la carrera de la luz llevada a cabo en el año 2022, en las calles y parques de ciudades del suroccidente colombiano y tiene como objetivo formar deportistas recreativos y profesionales en pro de tener una vida saludable.** 
+
+La carrera tenia una distancia de 10,07 kilometros, participaron 1922 atletas de los cuales el 39% fueron mujeres y el 61% fueron hombres el tiempo ganador fue de 33,1 minutos y el tiempo promedio utilizado en la carrera fue de 65.3 minutos. 
+
 ### Hombres por categoría
 
 ```{r}
@@ -57,7 +63,21 @@ library(ggplot2)
 qplot(categoria, timerun, data=dataF, geom=c("boxplot", "jitter"),main = "Tiempo de carreras de mujeres por categoría",xlab="Categoria",ylab = "Tiempo(min)",col = categoria)
 ```
 
-### Análisis
+### Categorías
+
+```{r}
+#Tabla de contingencia
+contingencia<-table( data$sex, data$categoria )
+#la variable que aparece de primero son las filas, la siguiente son columnas.
+#contingencia
+
+barplot(prop.table(contingencia), ylab = "Proporción", 
+        col = c("pink", "blue"), legend.text=c("Hombre","Mujer"),las=0.5)
+
+```
+
+
+### Análisis por categorias
 
 **Los resultados presentados corresponden a la carrera de la luz llevada a cabo en el año 2022, en las calles y parques de ciudades del suroccidente colombiano y tiene como objetivo formar deportistas recreativos y profesionales en pro de tener una vida saludable.** 
 La carrera se divide en cinco categorias:
